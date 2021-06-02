@@ -2,13 +2,19 @@
 import { Router} from 'express'
 import MarcasRoute from './marcas.routes';
 import DepartamentosRoute from './departamentos.routes';
-import ConcesionarioRoute from './concesionario.routes';
+import ConcesionarioRoute from './concesionarios.routes';
+import ClientesRoute from './clientes.routes';
+import MunicipiosRoute from './municipios.routes';
+import VehiculosRoute from './vehiculos.routes';
+import AgentesRoute from './agentes.routes';
 const router = Router();
 
 
 router.use('/marcas',MarcasRoute)
 router.use('/departamentos',DepartamentosRoute)
 router.use('/concesionario',ConcesionarioRoute)
-
-
+router.use('/clientes',ClientesRoute)
+router.use('/municipios',MunicipiosRoute)
+router.use('/vehiculos',VehiculosRoute)
+router.use('/Agentes',AgentesRoute)
 export default router;
