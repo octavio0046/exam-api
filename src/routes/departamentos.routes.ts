@@ -1,7 +1,7 @@
 import { Router} from 'express'
 const router = Router();
 
-import { getAll,create,getxId,deletM, UpdateM } from "../controllers/marcas.controller"; 
+import { getAll,create,getxId,deletM, UpdateM } from "../controllers/departamentos.controller"; 
 
 router.route('/')
 .get(getAll)
