@@ -13,6 +13,18 @@ export class App {
     this.settings();
     this.middelewares();
     this.routes();
+    this.cors();
+  }
+
+  cors() {
+    const allowedOrigins = ["http://localhost:4200"];
+    this.app.use(cors);
+
+    const options: cors.CorsOptions = {
+      origin: allowedOrigins,
+    };
+
+    this.app.use(cors(options));
   }
 
   settings() {
@@ -24,14 +36,6 @@ export class App {
 
     //solo permitir json
     this.app.use(express.json());
-    this.app.use(cors);
-    this.app.use(express.json());
-
-    const options: cors.CorsOptions = {
-      origin: "*",
-    };
-
-    this.app.use(cors(options));
   }
 
   routes() {
@@ -40,6 +44,5 @@ export class App {
 
   async listen() {
     await this.app.listen(this.app.get("port"));
-    console.log("server on port", this.app.get("port"));
   }
 }
