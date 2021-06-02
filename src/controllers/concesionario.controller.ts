@@ -1,19 +1,19 @@
 import {Request, Response} from 'express'
 import {connect} from '../../database';
-import { IMarcas } from "../interface/marcas";
+import { IConcesionario } from "../interface/concesionario";
 
 
 
 export async function getAll(req:Request, res:Response):Promise <Response> {
    const conn = await  connect();
-  const  marcas =await  conn.query('SELECT * FROM TCMarcas')
+  const  marcas =await  conn.query('SELECT * FROM TCDepartamentos')
   return res.json(marcas[0]);
 }
 
 export async function create(req:Request, res:Response){
-    const newDato:IMarcas = req.body;
+    const newDato:IConcesionario = req.body;
     const  conn = await connect();
-    await conn.query('INSERT INTO TCMarcas SET ?', [newDato]);
+    await conn.query('INSERT INTO TCDepartamentos SET ?', [newDato]);
     return res.json({
         message:'true '
     });
@@ -23,7 +23,7 @@ export async function create(req:Request, res:Response){
 export async function getxId(req:Request, res:Response){
      const id=req.params.Id;
      const conn = await connect();
-   const marcas = await conn.query('SELECT * FROM TCMarcas WHERE id=? ',[id]);
+   const marcas = await conn.query('SELECT * FROM TCDepartamentos WHERE id=? ',[id]);
    return res.json(marcas[0]);
 }
 
@@ -32,7 +32,7 @@ export async function getxId(req:Request, res:Response){
 export async function deletM(req:Request, res:Response){
     const id=req.params.Id;
     const conn = await connect();
-  await conn.query('DELETE FROM TCMarcas WHERE id=? ',[id]);
+  await conn.query('DELETE FROM TCDepartamentos WHERE id=? ',[id]);
   return res.json({
     message:'true '
 });
@@ -43,17 +43,12 @@ export async function deletM(req:Request, res:Response){
 export async function UpdateM(req:Request, res:Response){
     const id=req.params.Id;
     const conn = await connect();
-    const updateM:IMarcas = req.body;
-    await conn.query('UPDATE TCMarcas SET ? WHERE id=? ',[updateM,id]);
+    const updateM:IConcesionario = req.body;
+    await conn.query('UPDATE TCDepartamentos SET ? WHERE id=? ',[updateM,id]);
     return res.json({
         message:'true '
     });
 }
-
-
-
-
-
 
 
 

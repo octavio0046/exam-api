@@ -11,9 +11,9 @@ export async function getAll(req:Request, res:Response):Promise <Response> {
 }
 
 export async function create(req:Request, res:Response){
-    const newMarca:IDepartamentos = req.body;
+    const newDato:IDepartamentos = req.body;
     const  conn = await connect();
-    await conn.query('INSERT INTO TCDepartamentos SET ?', [newMarca]);
+    await conn.query('INSERT INTO TCDepartamentos SET ?', [newDato]);
     return res.json({
         message:'true '
     });
