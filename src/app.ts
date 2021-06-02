@@ -10,21 +10,16 @@ export class App {
 
   constructor(private port?: number | string) {
     this.app = express();
+    this.cors();
     this.settings();
     this.middelewares();
     this.routes();
-    this.cors();
+ 
   }
 
-  cors() {
-    const allowedOrigins = ["http://localhost:4200"];
-    this.app.use(cors);
 
-    const options: cors.CorsOptions = {
-      origin: allowedOrigins,
-    };
-
-    this.app.use(cors(options));
+  cors(){
+    this.app.use(cors());
   }
 
   settings() {
