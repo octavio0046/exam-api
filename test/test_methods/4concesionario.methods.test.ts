@@ -16,8 +16,17 @@ export async function create() {
     Estado: "Activo",
     Created_At: new Date(),
   };
+  const newDato2: IConcesionario = {
+    id: 2,
+    TCMunicipioId:2,
+    Nombre: "Autos Hernandez",
+    Razon: "Venta de Autos",
+    Estado: "Activo",
+    Created_At: new Date(),
+  };
   const conn = await connectTest();
   await conn.query("INSERT INTO TCConcesionarios SET ?", [newDato]);
+  await conn.query("INSERT INTO TCConcesionarios SET ?", [newDato2]);
   return true;
 }
 
