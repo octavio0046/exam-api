@@ -15,8 +15,15 @@ export async function create() {
     Estado: "Activo",
     Created_At: new Date(),
   };
+  const newDato2: IDepartamentos = {
+    id: 2,
+    Nombre: "Quetzaltenango Dep",
+    Estado: "Activo",
+    Created_At: new Date(),
+  };
   const conn = await connectTest();
   await conn.query("INSERT INTO TCDepartamentos SET ?", [newDato]);
+  await conn.query("INSERT INTO TCDepartamentos SET ?", [newDato2]);
   return true;
 }
 

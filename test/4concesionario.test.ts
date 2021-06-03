@@ -4,38 +4,38 @@ import {
     getxId,
     UpdateM,
     deletM,
-  } from "./test_methods/departamento.methods.test";
+  } from "./test_methods/4concesionario.methods.test";
   import { expect } from "chai";
   
-  describe("Get All Departamentos", () => {
+  describe("Get All Concesionario", () => {
     it("should return true", async () => {
       const result = await getAll();
       expect(result).to.equal(true);
     });
   });
   
-  describe("Create Departamento", () => {
+  describe("Create Concesionario", () => {
     it("should return true", async () => {
       const result = await create();
       expect(result).to.equal(true);
     });
   });
   
-  describe("Get Departamento by id", () => {
+  describe("Get Concesionario by id", () => {
     it("should return true", async () => {
       const result = await getxId();
       expect(result).to.equal(true);
     });
   });
   
-  describe("Update Departamento", () => {
+  describe("Update Concesionario", () => {
     it("should return true", async () => {
       const result = await UpdateM();
       expect(result).to.equal(true);
     });
   });
   
-  describe("Delete Departamento", () => {
+  describe("Delete Concesionario", () => {
     it("should return true", async () => {
       const result = await deletM();
       expect(result).to.equal(true);

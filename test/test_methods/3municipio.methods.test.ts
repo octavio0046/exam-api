@@ -1,6 +1,5 @@
 import {  connectTest } from "../../database";
 import { IMunicipios } from "../../src/interface/municipios";
-import { IDepartamentos } from "../../src/interface/departamentos";
 
 export async function getAll() {
   const conn = await connectTest();
@@ -9,21 +8,22 @@ export async function getAll() {
 }
 
 export async function create() {
-  const newDato1: IDepartamentos = {
+  const newDato: IMunicipios = {
     id: 1,
-    Nombre: "Huehuetenango Dep",
+    TCDepartamentoId:2,
+    Nombre: "Chiantla prue",
     Estado: "Activo",
     Created_At: new Date(),
   };
   const newDato2: IMunicipios = {
-    id: 1,
-    TCDepartamentoId:1,
+    id: 2,
+    TCDepartamentoId:2,
     Nombre: "Chiantla prue",
     Estado: "Activo",
     Created_At: new Date(),
   };
   const conn = await connectTest();
-  await conn.query("INSERT INTO TCDepartamentos SET ?", [newDato1]);
+  await conn.query("INSERT INTO TCMunicipios SET ?", [newDato]);
   await conn.query("INSERT INTO TCMunicipios SET ?", [newDato2]);
   return true;
 }
@@ -41,7 +41,7 @@ export async function UpdateM() {
   const conn = await connectTest();
   const updateM: IMunicipios = {
     id: 1,
-    TCDepartamentoId:1,
+    TCDepartamentoId:2,
     Nombre: "Cliantla Update",
     Estado: "Activo",
     Created_At: new Date(),

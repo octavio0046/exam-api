@@ -4,7 +4,7 @@ import {
     getxId,
     UpdateM,
     deletM,
-  } from "./test_methods/municipio.methods.test";
+  } from "./test_methods/3municipio.methods.test";
   import { expect } from "chai";
   
   describe("Get All Municipio", () => {
