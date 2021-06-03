@@ -15,7 +15,8 @@ export async function create(req:Request, res:Response){
     const  conn = await connect();
     await conn.query('INSERT INTO TCVehiculos SET ?', [newDato]);
     return res.json({
-        message:'true '
+        message:'true ',
+        status:'200'
     });
 }
 
