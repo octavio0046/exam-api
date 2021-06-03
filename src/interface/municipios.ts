@@ -2,6 +2,6 @@ export interface IMunicipios {
     id: number;
     Nombre:string;
     Estado:string;
-    TCMunicipioId:number
+    TCDepartamentoId:number
     Created_At:Date;
 }

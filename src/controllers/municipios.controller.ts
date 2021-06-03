@@ -23,7 +23,7 @@ export async function create(req:Request, res:Response){
 export async function getxId(req:Request, res:Response){
      const id=req.params.Id;
      const conn = await connect();
-   const marcas = await conn.query('SELECT * FROM TCMunicipios WHERE id=? ',[id]);
+   const marcas = await conn.query('SELECT mu.*,dep.Nombre FROM TCMunicipios mu inner join TCDepartamentos dep on dep.id=mu.TCDepartamentoId WHERE mu.id=? ',[id]);
    return res.json(marcas[0]);
 }
 

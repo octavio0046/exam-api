@@ -1,50 +1,49 @@
 import {  connectTest } from "../../database";
-import { IMarcas } from "../../src/interface/marcas";
+import { IDepartamentos } from "../../src/interface/departamentos";
 
 export async function getAll() {
   const conn = await connectTest();
-  await conn.query("SELECT * FROM TCMarcas");
+  await conn.query("SELECT * FROM TCDepartamentos");
 
   return true;
 }
 
 export async function create() {
-  const newDato: IMarcas = {
+  const newDato: IDepartamentos = {
     id: 1,
-    Nombre: "marca prueba",
+    Nombre: "Huehuetenango Dep",
     Estado: "Activo",
     Created_At: new Date(),
   };
   const conn = await connectTest();
-  await conn.query("INSERT INTO TCMarcas SET ?", [newDato]);
-
+  await conn.query("INSERT INTO TCDepartamentos SET ?", [newDato]);
   return true;
 }
 
 export async function getxId() {
   const id = 1;
   const conn = await connectTest();
-  await conn.query("SELECT * FROM TCMarcas WHERE id=? ", [id]);
+  await conn.query("SELECT * FROM TCDepartamentos WHERE id=? ", [id]);
   return true;
 }
 
 export async function UpdateM() {
   const id = 1;
   const conn = await connectTest();
-  const updateM: IMarcas = {
+  const updateM: IDepartamentos = {
     id: 1,
-    Nombre: "marca prueba updated",
+    Nombre: "Huehuetenango update",
     Estado: "Activo",
     Created_At: new Date(),
   };
-  await conn.query("UPDATE TCMarcas SET ? WHERE id=? ", [updateM, id]);
+  await conn.query("UPDATE TCDepartamentos SET ? WHERE id=? ", [updateM, id]);
   return true;
 }
 
 export async function deletM() {
   const id = 1;
   const conn = await connectTest();
-  await conn.query("DELETE FROM TCMarcas WHERE id=? ", [id]);
+  await conn.query("DELETE FROM TCDepartamentos WHERE id=? ", [id]);
 
   return true;
 }
