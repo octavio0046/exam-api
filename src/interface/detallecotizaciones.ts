@@ -1,7 +1,8 @@
 export interface IDetalleCotizaciones {
     id: number;
     TCVehiculoId:number;
-    TCCotizacionId:string;
+    TCCotizacionId:number;
     Descripcion:string;
+    Estado:string;
     Created_At:Date;
 }
