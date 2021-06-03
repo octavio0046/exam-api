@@ -5,6 +5,6 @@ export interface IAgentes {
     Apellidos:string;
     Nacimiento:Date;
     Estado:string;
-    TCMunicipioId:number;
+    TCConcesionarioId:number;
     Created_At:Date;
 }

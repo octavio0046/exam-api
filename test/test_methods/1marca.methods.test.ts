@@ -15,9 +15,15 @@ export async function create() {
     Estado: "Activo",
     Created_At: new Date(),
   };
+  const newDato2: IMarcas = {
+    id: 2,
+    Nombre: "Toyota",
+    Estado: "Activo",
+    Created_At: new Date(),
+  };
   const conn = await connectTest();
   await conn.query("INSERT INTO TCMarcas SET ?", [newDato]);
-
+  await conn.query("INSERT INTO TCMarcas SET ?", [newDato2]);
   return true;
 }
 
