@@ -4,7 +4,7 @@ use concesionario_exam;
 CREATE TABLE TCMarcas(
 id int NOT NULL auto_increment PRIMARY KEY,
 Nombre VARCHAR(200) NOT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -12,7 +12,7 @@ Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE TCDepartamentos(
 id int NOT NULL auto_increment PRIMARY KEY,
 Nombre VARCHAR(200) NOT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -21,7 +21,7 @@ Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE TCMunicipios(
 id int NOT NULL auto_increment PRIMARY KEY,
 Nombre VARCHAR(200) NOT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -34,8 +34,9 @@ ALTER TABLE TCMunicipios
 
 CREATE TABLE TCConcesionarios(
 id int NOT NULL auto_increment PRIMARY KEY,
+Nombre VARCHAR(200) DEFAULT NULL,
 Razon VARCHAR(200) DEFAULT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo', 
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -51,7 +52,7 @@ Precio int DEFAULT NULL,
 Color VARCHAR(200) DEFAULT NULL, 
 Tipo VARCHAR(200) DEFAULT NULL, 
 Traccion VARCHAR(200) DEFAULT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -75,7 +76,7 @@ Apellidos VARCHAR(200) NOT NULL,
 Nacimiento TIMESTAMP DEFAULT NULL, 
 EstadoCivil VARCHAR(200) DEFAULT NULL, 
 Escolaridad VARCHAR(200) DEFAULT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -91,7 +92,7 @@ Telefono int DEFAULT NULL,
 Nombres VARCHAR(200) NOT NULL, 
 Apellidos VARCHAR(200) NOT NULL, 
 Nacimiento TIMESTAMP DEFAULT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -105,7 +106,7 @@ Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     CREATE TABLE TCCotizaciones(
 id int NOT NULL auto_increment PRIMARY KEY,
 Vencimiento TIMESTAMP NOT NULL, 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );    
 
@@ -126,7 +127,7 @@ Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE TCDetalleCotizaciones(
 id int NOT NULL auto_increment PRIMARY KEY,
 Descripcion VARCHAR(255), 
-Estado TEXT NOT NULL, 
+Estado ENUM('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
 Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );    
 
@@ -142,6 +143,8 @@ Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         
 
 
+        
+        
         
         
         
