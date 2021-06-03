@@ -23,14 +23,14 @@ export async function create(req:Request, res:Response){
 export async function getxId(req:Request, res:Response){
      const id=req.params.Id;
      const conn = await connect();
-   const marcas = await conn.query('SELECT * FROM TCDetalleCotizaciones WHERE id=? ',[id]);
+   const marcas = await conn.query('SELECT * FROM TCDetalleCotizaciones  WHERE id=? ',[id]);
    return res.json(marcas[0]);
 }
 
 export async function getxIdDetalle(req:Request, res:Response){
     const id=req.params.Id;
     const conn = await connect();
-    const marcas = await conn.query('SELECT dt.*, ve.* from TCDetalleCotizaciones dt inner join TCCotizaciones co on co.id=dt.TCCotizacionId inner join TCVehiculos ve on ve.id = dt.TCVehiculoId WHERE co.id=? ',[id]);
+    const marcas = await conn.query('SELECT dt.id as iddeta ,dt.*, ve.* from TCDetalleCotizaciones dt inner join TCCotizaciones co on co.id=dt.TCCotizacionId inner join TCVehiculos ve on ve.id = dt.TCVehiculoId WHERE co.id=? ',[id]);
     return res.json(marcas[0]);
 
 }
