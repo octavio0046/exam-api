@@ -1,7 +1,8 @@
 export interface ICotizaciones {
     id: number;
     TCAgenteId:number;
-    TCClienteId:string;
-    Vencimiento:string;
+    TCClienteId:number;
+    Estado:string;
+    Vencimiento:Date;
     Created_At:Date;
 }

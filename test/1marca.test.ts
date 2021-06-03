@@ -4,7 +4,7 @@ import {
   getxId,
   UpdateM,
   deletM,
-} from "./test_methods/1marca.methods.test";
+} from "./test_methods/1marca.methods.methods.test";
 import { expect } from "chai";
 
 describe("Get All Marcas", () => {
