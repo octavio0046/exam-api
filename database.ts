@@ -11,3 +11,17 @@ export async function  connect(){
     });
     return connection;
 }
+
+
+
+export async function  connectTest(){
+
+    const connection = await  createPool({
+         host: 'localhost',
+         user:'root',
+         password:'root',
+         database:'concesionario_examTest',
+         connectionLimit:10
+     });
+     return connection;
+ }
