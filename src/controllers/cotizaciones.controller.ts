@@ -20,6 +20,15 @@ export async function create(req:Request, res:Response){
 }
 
 
+export async function CotizacionesRp(req:Request, res:Response){
+    console.log("aqui",req.body)
+    //const newDato:any = req.body;
+    const  conn = await connect();
+    const datos = await conn.query('select  * from tccotizaciones co inner join tcagentes ag on ag.id=co.tcAgenteid inner join tcclientes cli on cli.id = co.tcclienteid where date(co.created_at) between date(ifnull(?,co.created_at))and date(ifnull(?,co.created_at) );', [req.body.FechaInicio,req.body.FechaFin]);
+    return res.json(datos[0]);
+}
+
+
 export async function getxId(req:Request, res:Response){
      const id=req.params.Id;
      const conn = await connect();
