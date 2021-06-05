@@ -23,7 +23,7 @@ export async function create(req:Request, res:Response){
 export async function CotizacionesRp(req:Request, res:Response){
     //const newDato:any = req.body;
     const  conn = await connect();
-    const datos = await conn.query('select  co.*,ag.Nombres as Agente, cli.Nombres as Cliente from TCCotizaciones coinner join TCAgentes ag on ag.id=co.tcAgenteid inner join TCClientes cli on cli.id = co.tcclienteid where date(co.created_at) between date(ifnull(?,co.created_at))and date(ifnull(?,co.created_at) );', [req.body.FechaInicio,req.body.FechaFin]);
+    const datos = await conn.query('select  co.*,ag.Nombres as Agente, cli.Nombres as Cliente from TCCotizaciones co inner join TCAgentes ag on ag.id=co.tcAgenteid inner join TCClientes cli on cli.id = co.tcclienteid where date(co.created_at) between date(ifnull(?,co.created_at))and date(ifnull(?,co.created_at) );', [req.body.FechaInicio,req.body.FechaFin]);
     return res.json(datos[0]);
 }
 
